@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>AURA Finance</title>
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <!-- Brand -->
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    A
+                </div>
+                <div class="brand-content">
+                    <h1 class="brand-title">
+                        AURA
+                    </h1>
+                    <p class="brand-subtitle">
+                        Personal Finance
+                    </p>
+                </div>
+            </div>
+
+            <!-- Quick Action -->
+            <div class="quick-action">
+                <button class="new-transaction-btn">
+                    <i data-lucide="plus"></i>
+                    <span>New Transaction</span>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-page="dashboard-page">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span>Dashboard</span>
+                    </li>
+                    <li data-page="transactions-page">
+                        <i data-lucide="receipt"></i>
+                        <span>Transactions</span>
+                    </li>
+                    <li data-page="analytics-page">
+                        <i data-lucide="chart-column"></i>
+                        <span>Analytics</span>
+                    </li>
+                    <li data-page="budget-page">
+                        <i data-lucide="wallet"></i>
+                        <span>Budget</span>
+                    </li>
+                    <li data-page="goals-page">
+                        <i data-lucide="target"></i>
+                        <span>Goals</span>
+                    </li>
+                    <li data-page="calendar-page">
+                        <i data-lucide="calendar-days"></i>
+                        <span>Calendar</span>
+                    </li>
+                    <li data-page="recurring-page">
+                        <i data-lucide="repeat"></i>
+                        <span>Recurring</span>
+                    </li>
+                    <li data-page="reports-page">
+                        <i data-lucide="file-text"></i>
+                        <span>Reports</span>
+                    </li>
+                    <li data-page="loan-page">
+                        <i data-lucide="credit-card"></i>
+                        <span>Loans</span>
+                    </li>
+                    <li data-page="investment-page">
+                        <i data-lucide="chart-line"></i>
+                        <span>Investments</span>
+                    </li>
+                    <li data-page="achievements-page">
+                        <i data-lucide="trophy"></i>
+                        <span>Achievements</span>
+                    </li>
+                    <li data-page="settings-page">
+                        <i data-lucide="settings"></i>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Profile -->
+            <div class="sidebar-profile">
+
+                <div class="profile-top">
+
+                    <div class="profile-avatar"
+                        id="sidebarAvatar">
+                        SC
+                    </div>
+
+                    <div class="profile-info">
+                        <h3 id="sidebarUserName">
+                            Shivpal
+                        </h3>
+
+                        <p>
+                            Finance Explorer
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="profile-divider"></div>
+
+                <div class="profile-stats">
+
+                    <div class="profile-stat">
+
+                        <span>🏆 Achievements</span>
+
+                        <strong id="sidebarAchievementCount">
+                            0 / 19
+                        </strong>
+
+                    </div>
+
+                    <div class="profile-stat">
+
+                        <span>💰 Net Worth</span>
+
+                        <strong id="sidebarNetWorth">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <div class="welcome">
+                        <h2>Good Evening, Shivpal 👋</h2>
+                        <p>Welcome back to your finance dashboard.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <button id="menuToggle" class="menu-toggle">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input
+                            type="text"
+                            id="globalSearch"
+                            placeholder="Search transactions...">
+                        <div
+                            id="globalSearchResults"
+                            class="global-search-results">
+
+                        </div>
+                    </div>
+
+                    <div class="notification-wrapper">
+                        <button
+                            class="icon-btn"
+                            id="notificationBtn">
+                            <i data-lucide="bell"></i>
+                            <span
+                                id="notificationCount"
+                                class="notification-count">
+                                0
+                            </span>
+                        </button>
+
+                        <div
+                            id="notificationPanel"
+                            class="notification-panel">
+                            <h3>
+                                Notifications
+                            </h3>
+                            <div id="notificationList">
+                                No notifications
+                            </div>
+                            <button
+                                id="notificationViewAllBtn"
+                                class="view-all-btn">
+                                View All
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="icon-btn"
+                        id="themeToggle">
+                        <i
+                            data-lucide="moon"
+                            id="themeIcon">
+
+                        </i>
+
+                    </button>
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            SC
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section id="dashboard-page" class="page active-page">
+            <section class="dashboard">
+                <!-- Overview Cards -->
+                <section class="overview">
+                    <article class="card">
+                        <div class="card-header">
+                            <span>Total Balance</span>
+                            <i data-lucide="wallet"></i>
+                        </div>
+                        <h2 id="balance">₹0</h2>
+                        <p>+12.5% from last month</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <span>Income</span>
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <h2 id="income">₹0</h2>
+                        <p>+8.2% this month</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <span>Expenses</span>
+                            <i data-lucide="trending-down"></i>
+                        </div>
+                        <h2 id="expense">₹0</h2>
+                        <p>-3.1% from last month</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <span>Savings</span>
+                            <i data-lucide="piggy-bank"></i>
+                        </div>
+                        <h2 id="saving">₹0</h2>
+                        <p>38% saving rate</p>
+                    </article>
+                </section>
+            </section>
+
+            <div class="upcoming-emi-card">
+                <div class="upcoming-emi-header">
+                    <h3>💳 Upcoming EMI</h3>
+                    <button
+                        class="view-all-btn"
+                        onclick="document.querySelector('[data-page=&quot;loan-page&quot;]').click()">
+                        View Loan
+                    </button>
+                </div>
+            
+                <div id="upcomingEmiContent">
+                    No upcoming EMI
+                </div>
+            </div>
+
+            <section class="insights-section">
+                <div class="insights-card">
+                    <div class="section-header">
+                        <h3>
+                            📊 Monthly Insights
+                        </h3>
+                    </div>
+                    <div id="monthlyInsights">
+                        Loading...
+                    </div>
+                </div>
+            </section>
+
+            <section class="upcoming-section">
+                <div class="upcoming-card">
+                    <div class="section-header">
+                        <h3>🔔 Upcoming Bills</h3>
+                        <button
+                            id="viewUpcomingBtn"
+                            class="view-all-btn">
+                            View All
+                        </button>
+                    </div>
+                    <div id="upcomingList">
+                        <p class="empty-upcoming">
+                            No upcoming bills
+                        </p>
+                    </div>
+                </div>
+            </section>
+        
+
+            <section class="analytics">
+                <!-- Expense Chart -->
+                <article class="chart-card">
+                    <div class="section-header">
+                        <h3>Expense Analytics</h3>
+                        <button class="view-all-btn">
+                            View Report
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </article>
+                <!-- Recent Transactions -->
+                <article class="transaction-card">
+                    <div class="section-header">
+                        <h3>Recent Transactions</h3>
+                        <button class="view-all-btn">
+                            View All
+                        </button>
+                    </div>
+
+                    <div class="transaction-toolbar">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search transaction...">
+                        <select id="filterType">
+                            <option value="all">All</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                    <div class="transaction-list" id="transactionList">
+                    </div>
+                </article>
+            </section>
+
+            <section class="health-score-section">
+
+                <div class="health-card">
+
+                    <div class="section-header">
+
+                        <h3>💚 Financial Health Score</h3>
+
+                        <div
+                            id="healthStatus"
+                            class="health-badge">
+
+                            Good
+
+                        </div>
+
+                    </div>
+
+                    <div class="health-body">
+
+                        <div class="health-circle">
+
+                            <svg viewBox="0 0 120 120">
+
+                                <circle
+                                    class="health-bg"
+                                    cx="60"
+                                    cy="60"
+                                    r="50">
+                                </circle>
+
+                                <circle
+                                    id="healthProgress"
+                                    class="health-progress"
+                                    cx="60"
+                                    cy="60"
+                                    r="50">
+                                </circle>
+
+                            </svg>
+
+                            <div class="health-score">
+
+                                <h2 id="healthScore">0</h2>
+
+                                <span>/100</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="health-breakdown">
+
+                            <div class="health-item">
+
+                                <div class="health-item-top">
+
+                                    <span>Income</span>
+
+                                    <strong id="incomeHealth">0%</strong>
+
+                                </div>
+
+                                <div class="health-bar">
+
+                                    <div
+                                        id="incomeHealthBar"
+                                        class="health-bar-fill">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="health-item">
+
+                                <div class="health-item-top">
+
+                                    <span>Budget</span>
+
+                                    <strong id="budgetHealth">0%</strong>
+
+                                </div>
+
+                                <div class="health-bar">
+
+                                    <div
+                                        id="budgetHealthBar"
+                                        class="health-bar-fill">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="health-item">
+
+                                <div class="health-item-top">
+
+                                    <span>Savings</span>
+
+                                    <strong id="savingHealth">0%</strong>
+
+                                </div>
+
+                                <div class="health-bar">
+
+                                    <div
+                                        id="savingHealthBar"
+                                        class="health-bar-fill">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="health-item">
+
+                                <div class="health-item-top">
+
+                                    <span>Investment</span>
+
+                                    <strong id="investmentHealth">0%</strong>
+
+                                </div>
+
+                                <div class="health-bar">
+
+                                    <div
+                                        id="investmentHealthBar"
+                                        class="health-bar-fill">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="health-item">
+
+                                <div class="health-item-top">
+
+                                    <span>Loan</span>
+
+                                    <strong id="loanHealth">0%</strong>
+
+                                </div>
+
+                                <div class="health-bar">
+
+                                    <div
+                                        id="loanHealthBar"
+                                        class="health-bar-fill">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="healthInsight"
+                            class="health-insight">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="achievement-section">
+                <div class="achievement-card">
+                    <div class="section-header">
+                        <h3>🏆 Achievements</h3>
+                        <button
+                            id="viewAchievementBtn"
+                            class="view-all-btn">
+                            View All
+                        </button>
+                    </div>
+
+                    <div class="achievement-progress">
+                        <div class="achievement-progress-fill" id="achievementProgress">
+                            <span id="achievementPercent">
+                                0%
+                            </span>
+                        </div>
+                    </div>
+
+                    <p class="achievement-summary">
+                        <strong id="achievementUnlocked">
+                            0
+                        </strong>
+                        /
+                        <strong id="achievementTotal">
+                            15
+                        </strong>
+                        Achievements Unlocked
+                    </p>
+                    <div
+                        id="achievementList"
+                        class="achievement-list">
+
+                    </div>
+                </div>
+            </section>
+
+            </section>
+
+            <section id="transactions-page" class="page">
+                <div class="page-header">
+                    <h1>All Transactions</h1>
+                    <button class="new-transaction-btn">
+                        <i data-lucide="plus"></i>
+                        <span>Add Transaction</span>
+                    </button>
+                </div>
+
+                <div class="transaction-toolbar">
+                    <input
+                        type="text"
+                        id="allSearchInput"
+                        placeholder="Search transaction...">
+                    <select id="allFilterType">
+                        <option value="all">All</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+
+                    <select id="sortTransactions">
+                        <option value="newest">
+                            Newest
+                        </option>
+                        <option value="oldest">
+                            Oldest
+                        </option>
+                        <option value="high">
+                            Amount High
+                        </option>
+                        <option value="low">
+                            Amount Low
+                        </option>
+                        <option value="az">
+                            A-Z
+                        </option>
+                    </select>
+                </div>
+
+                <div class="transaction-table">
+                    <div class="table-header">
+                        <div>#</div>
+                        <div>Title</div>
+                        <div>Category</div>
+                        <div>Date</div>
+                        <div>Amount</div>
+                        <div>Actions</div>
+                    </div>
+                    <div
+                        id="allTransactionList"
+                        class="table-body">
+                    </div>
+                </div>
+            </section>
+
+            <section id="analytics-page" class="page">
+                <div class="page-header">
+                    <h1>Analytics</h1>
+                </div>
+                <section class="analytics-overview">
+                    <div class="analytics-card">
+                        <h4>Total Income</h4>
+                        <h2 id="analyticsIncome">₹0</h2>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Total Expense</h4>
+                        <h2 id="analyticsExpense">₹0</h2>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Net Balance</h4>
+                        <h2 id="analyticsBalance">₹0</h2>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Total Transactions</h4>
+                        <h2 id="analyticsTransactions">0</h2>
+                    </div>
+                </section>
+                
+                <section class="analytics-charts">
+                    <div class="analytics-chart-card">
+                        <h3>Income vs Expense</h3>
+                        <canvas id="incomeExpenseChart"></canvas>
+                    </div>
+                    <div class="analytics-chart-card">
+                        <div class="section-header">
+                            <h3>Expenses By Category</h3>
+                        </div>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </section>
+            </section>
+
+            <section id="budget-page" class="page">
+                <div class="page-header">
+                    <h2>Budget</h2>
+                </div>
+                <div class="budget-grid">
+                    <div class="budget-card">
+                        <h3>Monthly Budget</h3>
+                        <div class="budget-input">
+                            <input
+                                type="number"
+                                id="budgetAmount"
+                                placeholder="Enter Monthly Budget">
+                            <button id="saveBudgetBtn">
+                                Save
+                            </button>
+                        </div>
+
+                        <div class="budget-stats">
+                            <div>
+                                <span>Budget</span>
+                                <strong id="totalBudget">
+                                    ₹0
+                                </strong>
+                            </div>
+                            <div>
+                                <span>Spent</span>
+                                <strong id="budgetSpent">
+                                    ₹0
+                                </strong>
+                            </div>
+                            <div>
+                                <span>Remaining</span>
+                                <strong id="budgetRemaining">
+                                    ₹0
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="budget-progress">
+                            <div
+                                class="budget-progress-fill"
+                                id="budgetProgress">
+                                <span id="budgetPercent">
+                                    0%
+                                </span>
+                            </div>
+                        </div>
+
+                        <p id="budgetStatus">
+                            No budget set
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="goals-page" class="page">
+                <div class="page-header">
+                    <h1>Savings Goal</h1>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-input">
+                        <input
+                            type="number"
+                            id="goalAmount"
+                            placeholder="Enter Savings Goal">
+                        <button id="saveGoalBtn">
+                            Save Goal
+                        </button>
+                    </div>
+
+                    <div class="goal-stats">
+                        <div>
+                            <span>Goal</span>
+                            <strong id="goalTotal">
+                                ₹0
+                            </strong>
+                        </div>
+                        <div>
+                            <span>Current Savings</span>
+                            <strong id="goalCurrent">
+                                ₹0
+                            </strong>
+                        </div>
+                        <div>
+                            <span>Remaining</span>
+                            <strong id="goalRemaining">
+                                ₹0
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="goal-progress">
+                        <div
+                            class="goal-progress-fill"
+                            id="goalProgress">
+                            <span id="goalPercent">
+                                0%
+                            </span>
+                        </div>
+                    </div>
+
+                    <p id="goalStatus">
+                        No Goal Set
+                    </p>
+                </div>
+            </section>
+
+            <section id="calendar-page" class="page">
+                <div class="page-header">
+                    <h1>Calendar</h1>
+                </div>
+
+                <div class="calendar-summary">
+                    <div class="calendar-summary-card">
+                        <span>Income This Month</span>
+                        <h2 id="calendarIncome">
+                            ₹0
+                        </h2>
+                    </div>
+                    <div class="calendar-summary-card">
+                        <span>Expense This Month</span>
+                        <h2 id="calendarExpense">
+                            ₹0
+                        </h2>
+                    </div>
+                    <div class="calendar-summary-card">
+                        <span>Transactions</span>
+                        <h2 id="calendarTransactions">
+                            0
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        <button id="prevMonth">
+                            ←
+                        </button>
+                        <h2 id="calendarMonth">
+                            July 2026
+                        </h2>
+                        <button id="nextMonth">
+                            →
+                        </button>
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>Sun</span>
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                    </div>
+
+                    <div
+                        id="calendarGrid"
+                        class="calendar-grid">
+
+                    </div>
+                </div>
+
+                <div class="calendar-transactions">
+                    <h3>
+                        Transactions
+                    </h3>
+
+                    <div id="calendarTransactionList">
+                        Select a date
+                    </div>
+                </div>
+            </section>
+
+            <section id="recurring-page" class="page">
+                <div class="page-header">
+                    <h1>Recurring Transactions</h1>
+                </div>
+                <div
+                    id="recurringList"
+                    class="recurring-grid">
+                </div>
+            </section>
+
+
+            <section id="reports-page" class="page">
+                <div class="page-header">
+                    <h1>Reports</h1>
+                </div>
+
+                <div class="report-grid">
+                    <div class="report-card">
+                        <h3>Monthly Summary</h3>
+                        <div class="report-actions">
+                            <button id="exportCSVBtn">
+                                Export CSV
+                            </button>
+                            <button id="exportPDFBtn">
+                                Export PDF
+                            </button>
+                        </div>
+
+                        <div class="report-stats">
+                            <div>
+                                <span>Income</span>
+                                <strong id="reportIncome">
+                                    ₹0
+                                </strong>
+                            </div>
+                            <div>
+                                <span>Expense</span>
+                                <strong id="reportExpense">
+                                    ₹0
+                                </strong>
+                            </div>
+                            <div>
+                                <span>Savings</span>
+                                <strong id="reportSavings">
+                                    ₹0
+                                </strong>
+                            </div>
+                            <div>
+                                <span>Transactions</span>
+                                <strong id="reportTransactions">
+                                    0
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="loan-page" class="page">
+                <div class="page-header">
+                    <h1>
+                        💳 EMI / Loan Tracker
+                    </h1>
+                </div>
+
+                <div class="loan-toolbar">
+                    <button
+                        id="addLoanBtn"
+                        class="loan-btn">
+                        Add Loan
+                    </button>
+                </div>
+
+                <div class="loan-summary">
+                    <div class="loan-summary-card">
+                        <h4>Total Loan</h4>
+                        <h2 id="totalLoanAmount">
+                            ₹0
+                        </h2>
+                    </div>
+
+                    <div class="loan-summary-card">
+                        <h4>Remaining</h4>
+                        <h2 id="remainingLoanAmount">
+                            ₹0
+                        </h2>
+                    </div>
+
+                    <div class="loan-summary-card">
+                        <h4>Paid</h4>
+                        <h2 id="paidLoanAmount">
+                            ₹0
+                        </h2>
+                    </div>
+
+                    <div class="loan-summary-card">
+                        <h4>Active Loans</h4>
+                        <h2 id="activeLoanCount">
+                            0
+                        </h2>
+                    </div>
+                </div>
+
+                <div
+                    id="loanList"
+                    class="loan-grid">
+                    <p>
+                        No Loans Added
+                    </p>
+                </div>
+            </section>
+
+            <section id="investment-page" class="page">
+                <div class="page-header">
+                    <h1>📈 Investment Tracker</h1>
+                    <button
+                        id="addInvestmentBtn"
+                        class="loan-btn">
+                        Add Investment
+                    </button>
+                </div>
+
+                <div class="investment-toolbar">
+                    <input
+                        type="text"
+                        id="investmentSearch"
+                        placeholder="🔍 Search Investment..."
+                    >
+                    <select id="investmentFilter">
+                        <option value="all">All Types</option>
+                        <option value="Stock">Stock</option>
+                        <option value="Mutual Fund">Mutual Fund</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Crypto">Crypto</option>
+                        <option value="FD">FD</option>
+                        <option value="Real Estate">
+                            Real Estate
+                        </option>
+                    </select>
+                    <select id="investmentSort">
+                        <option value="newest">
+                            Newest
+                        </option>
+                        <option value="oldest">
+                            Oldest
+                        </option>
+                        <option value="profit">
+                            Highest Profit
+                        </option>
+                        <option value="roi">
+                            Highest ROI
+                        </option>
+                        <option value="amount">
+                            Highest Invested
+                        </option>
+                        <option value="az">
+                            A-Z
+                        </option>
+                    </select>
+                </div>
+
+                <div class="investment-summary">
+                    <div class="investment-summary-card">
+                        <h4>Total Invested</h4>
+                        <h2 id="totalInvested">
+                            ₹0
+                        </h2>
+                    </div>
+                    <div class="investment-summary-card">
+                        <h4>Current Value</h4>
+                        <h2 id="currentInvestmentValue">
+                            ₹0
+                        </h2>
+                    </div>
+                    <div class="investment-summary-card">
+                        <h4>Profit / Loss</h4>
+                        <h2 id="investmentProfit">
+                            ₹0
+                        </h2>
+                    </div>
+                    <div class="investment-summary-card">
+                        <h4>Total Assets</h4>
+                        <h2 id="investmentCount">
+                            0
+                        </h2>
+                    </div>
+                </div>
+                
+                <div class="investment-insights">
+                    <div class="insight-card">
+                        <h4>ROI</h4>
+                        <h2 id="portfolioROI">0%</h2>
+                    </div>
+                    <div class="insight-card">
+                        <h4>Portfolio Growth</h4>
+                        <h2 id="portfolioGrowth">₹0</h2>
+                    </div>
+                    <div class="insight-card">
+                        <h4>Best Performer</h4>
+                        <h2 id="bestInvestment">--</h2>
+                    </div>
+                    <div class="insight-card">
+                        <h4>Worst Performer</h4>
+                        <h2 id="worstInvestment">--</h2>
+                    </div>
+                </div>
+
+                <div class="investment-chart-card">
+                    <div class="section-header">
+                        <h3>
+                            Portfolio Allocation
+                        </h3>
+                    </div>
+                    <canvas id="investmentChart"></canvas>
+                </div>
+
+                <div
+                    id="investmentList"
+                    class="investment-grid">
+                    <p>
+                        No Investments Added
+                    </p>
+                </div>
+            </section>
+
+            <section
+                id="achievements-page"
+                class="page">
+                <div class="page-header">
+                    <h2>🏆 Achievements</h2>
+                    <p>
+                        Track your financial milestones and unlock rewards.
+                    </p>
+                </div>
+                <div id="allAchievements"
+                    class="achievement-grid">
+                </div>
+            </section>
+
+            <section id="settings-page" class="page">
+                <div class="page-header">
+                    <h1>Settings</h1>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i data-lucide="user-round"></i>
+                            <h3>Profile</h3>
+                        </div>
+
+                        <p class="settings-description">
+                            Update your profile information.
+                        </p>
+
+                        <div class="settings-form">
+                            <label>
+                                Full Name
+                            </label>
+                            <input
+                                type="text"
+                                id="profileName"
+                                placeholder="Enter your name">
+                            <button id="saveProfileBtn">
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i data-lucide="badge-indian-rupee"></i>
+                            <h3>Currency</h3>
+                        </div>
+                        
+                        <p class="settings-description">
+                            Choose your preferred currency.
+                        </p>
+
+                        <div class="settings-form">
+                            <label>Currency</label>
+                            <select id="currencySelect">
+                                <option value="₹">
+                                    Indian Rupee (₹)
+                                </option>
+                                <option value="$">
+                                    US Dollar ($)
+                                </option>
+                                <option value="€">
+                                    Euro (€)
+                                </option>
+                                <option value="£">
+                                    British Pound (£)
+                                </option>
+                            </select>
+                            <p class="currency-note">
+                                * Exchange rates are fixed for demo purposes.
+                            </p>
+                            <p class="settings-note">
+                                Changes will be applied across the application.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i data-lucide="database-backup"></i>
+                            <h3>Data Management</h3>
+                        </div>
+
+                        <p class="settings-description">
+                            Backup or restore your finance data.
+                        </p>
+
+                        <div class="settings-form">
+                            <button id="exportBackupBtn">
+                                Export Backup
+                            </button>
+                            <input
+                                type="file"
+                                id="importBackupFile"
+                                accept=".json"
+                                hidden>
+                            <button id="importBackupBtn">
+                                Import Backup
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="settings-card danger-card">
+                        <div class="settings-card-header">
+                            <i data-lucide="triangle-alert"></i>
+                            <h3>Danger Zone</h3>
+                        </div>
+
+                        <p class="settings-description">
+                            Permanently delete all your transactions and settings.
+                        </p>
+
+                        <div class="settings-form">
+                            <button id="resetDataBtn" class="danger-btn">
+                                Reset All Data
+                            </button>
+                        </div>
+
+                        <p class="danger-note">
+                            ⚠ This action cannot be undone.
+                        </p>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i data-lucide="info"></i>
+                            <h3>About</h3>
+                        </div>
+
+                        <div class="about-content">
+                            <h2>AURA Finance</h2>
+                            <p class="about-subtitle">
+                                Personal Finance Tracker
+                            </p>
+
+                            <div class="about-item">
+                                <span>Version</span>
+                                <strong>1.0.0</strong>
+                            </div>
+
+                            <div class="about-item">
+                                <span>Built With</span>
+                                <strong>HTML • CSS • JavaScript</strong>
+                            </div>
+
+                            <div class="about-item">
+                                <span>Developer</span>
+                                <strong>Shivpal Chaurasiya</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="sidebar-overlay"></div>
+
+        <!-- Add Transaction Modal -->
+        <div class="modal hidden" id="transactionModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add Transaction</h2>
+                    <button class="close-modal">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Enter title"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="Enter amount"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="category">
+                            <option>Food</option>
+                            <option>Shopping</option>
+                            <option>Entertainment</option>
+                            <option>Transport</option>
+                            <option>Bills</option>
+                            <option>Salary</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="type">
+                            <option value="income">
+                                Income
+                            </option>
+                            <option value="expense">
+                                Expense
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input
+                                type="checkbox"
+                                id="isRecurring">
+                            Recurring Transaction
+                        </label>
+                    </div>
+
+                    <div
+                        class="form-group"
+                        id="repeatGroup"
+                        style="display:none;">
+                        <label>
+                            Repeat
+                        </label>
+                        <select id="repeatType">
+                            <option value="monthly">
+                                Monthly
+                            </option>
+                            <option value="weekly">
+                                Weekly
+                            </option>
+                            <option value="yearly">
+                                Yearly
+                            </option>
+                        </select>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+                        Add Transaction
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div
+            class="modal hidden"
+            id="loanModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>
+                        Add Loan
+                    </h2>
+                    <button
+                        class="close-loan-modal">
+                        ✕
+                    </button>
+                </div>
+
+                <form id="loanForm">
+                    <div class="form-group">
+                        <label>
+                            Loan Name
+                        </label>
+                        <input
+                            type="text"
+                            id="loanName"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Total Amount
+                        </label>
+                        <input
+                            type="number"
+                            id="loanAmount"
+                            required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            Total EMI
+                        </label>
+                        <input
+                            type="number"
+                            id="loanTotalEmi"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Next EMI Date
+                        </label>
+                        <input
+                            type="date"
+                            id="loanNextDate"
+                            required>
+                    </div>
+
+                    <button
+                        class="submit-btn"
+                        type="submit">
+                        Save Loan
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="investmentModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add Investment</h2>
+                    <button
+                        class="close-modal"
+                        id="closeInvestmentModal">
+                        ✕
+                    </button>
+                </div>
+
+                <form id="investmentForm">
+                    <div class="form-group">
+                        <label>Investment Name</label>
+                        <input
+                            id="investmentName"
+                            type="text"
+                            placeholder="Ex. TCS"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Investment Type</label>
+                        <select id="investmentType">
+                            <option>Stock</option>
+                            <option>Mutual Fund</option>
+                            <option>Gold</option>
+                            <option>Crypto</option>
+                            <option>Fixed Deposit</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Invested Amount</label>
+                        <input
+                            id="investmentAmount"
+                            type="number"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current Value</label>
+                        <input
+                            id="investmentCurrentValue"
+                            type="number"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Purchase Date</label>
+                        <input
+                            id="investmentDate"
+                            type="date"
+                            required>
+                    </div>
+
+                    <button
+                        class="submit-btn"
+                        type="submit">
+                        Save Investment
+                    </button>
+                </form>
+            </div>
+        </div>    
+        
+        
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="storage.js"></script>
+    <script src="data.js"></script>
+    <script src="transaction.js"></script>
+    <script src="chart.js"></script>
+    <script src="ui.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Toast Container -->
+
+    <div
+        id="toastContainer"
+        class="toast-container">
+
+    </div>
+</body>
+</html>
