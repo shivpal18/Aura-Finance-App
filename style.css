@@ -5379,3 +5379,50 @@ body{
     }
 
 }
+
+/* ===========================
+   Financial Health Mobile Fix
+=========================== */
+
+@media (max-width:768px){
+
+    .health-body{
+        display:flex;
+        flex-direction:column;
+        gap:24px;
+    }
+
+    .health-circle{
+        margin:0 auto;
+    }
+
+    .health-breakdown{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .health-item{
+        width:100%;
+    }
+
+    .health-item-top{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .health-bar{
+        width:100%;
+    }
+
+    .health-insight li{
+        display:flex;
+        align-items:flex-start;
+        gap:12px;
+        white-space:normal;
+        word-break:break-word;
+        overflow-wrap:anywhere;
+    }
+
+}
