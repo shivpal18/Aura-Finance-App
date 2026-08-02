@@ -5398,8 +5398,8 @@ body{
 
     .health-breakdown{
         display:grid;
-        grid-template-columns:1fr;
-        gap:16px;
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
     }
 
     .health-item{
@@ -5425,4 +5425,22 @@ body{
         overflow-wrap:anywhere;
     }
 
+}
+
+@media (max-width:480px){
+
+    .health-breakdown{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .health-item{
+        padding:14px;
+    }
+
+    .health-item-top{
+        flex-direction:column;
+        gap:4px;
+        text-align:center;
+    }
 }
