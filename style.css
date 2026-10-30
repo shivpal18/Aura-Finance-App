@@ -4842,41 +4842,25 @@ body{
 }
 
 .health-insight li:hover{
-
     transform:translateX(6px);
-
     border-color:var(--primary);
-
     background:var(--surface-soft);
-
 }
 
 .health-insight li{
-
     position:relative;
-
 }
 
 .health-insight li::before{
-
     content:"";
-
     position:absolute;
-
     left:0;
-
     top:10px;
-
     bottom:10px;
-
     width:4px;
-
     border-radius:20px;
-
     background:var(--primary);
-
     opacity:.75;
-
 }
 
 /* ===========================
@@ -4884,591 +4868,91 @@ body{
 =========================== */
 
 .toast-container{
-
     position:fixed;
-
     top:24px;
-
     right:24px;
-
     display:flex;
-
     flex-direction:column;
-
     gap:14px;
-
     z-index:9999;
-
     pointer-events:none;
-
 }
 
 .toast{
-
     min-width:320px;
-
     max-width:380px;
-
     display:flex;
-
     align-items:center;
-
     gap:14px;
-
     padding:16px 18px;
-
     border-radius:18px;
-
     background:var(--surface);
-
     border:1px solid var(--border);
-
     box-shadow:0 18px 45px rgba(0,0,0,.25);
-
     backdrop-filter:blur(18px);
-
     transform:translateX(120%);
-
     opacity:0;
-
     transition:.45s ease;
-
 }
 
 .toast.show{
-
     transform:translateX(0);
-
     opacity:1;
-
 }
 
 .toast.hide{
-
     transform:translateX(120%);
-
     opacity:0;
-
 }
 
 .toast-icon{
-
     width:46px;
-
     height:46px;
-
     border-radius:14px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     font-size:22px;
-
     flex-shrink:0;
-
 }
 
 .toast-content{
-
     flex:1;
-
 }
 
 .toast-title{
-
     font-size:15px;
-
     font-weight:700;
-
     color:var(--text-primary);
-
     margin-bottom:4px;
-
 }
 
 .toast-message{
-
     font-size:13px;
-
     color:var(--text-secondary);
-
 }
 
 .toast.success .toast-icon{
-
     background:rgba(34,197,94,.15);
-
     color:#22C55E;
-
 }
 
 .toast.error .toast-icon{
-
     background:rgba(239,68,68,.15);
-
     color:#EF4444;
-
 }
 
 .toast.warning .toast-icon{
-
     background:rgba(245,158,11,.15);
-
     color:#F59E0B;
-
 }
 
 .toast.info .toast-icon{
-
     background:rgba(59,130,246,.15);
-
     color:#3B82F6;
-
 }
 
 .toast.achievement .toast-icon{
-
     background:rgba(250,204,21,.15);
-
     color:#FACC15;
-
-}
-
-
-
-@media (max-width:1024px){
-
-    .app{
-        grid-template-columns:90px 1fr;
-    }
-
-    .sidebar{
-        padding:18px 12px;
-    }
-
-    .brand-content,
-    .sidebar-profile,
-    .sidebar-nav li span,
-    .new-transaction-btn span{
-        display:none;
-    }
-
-    .sidebar-nav li{
-        justify-content:center;
-    }
-
-    .overview,
-    .analytics-overview,
-    .loan-summary,
-    .calendar-summary{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .analytics,
-    .analytics-charts{
-        grid-template-columns:1fr;
-    }
-
-}
-
-@media (max-width:768px){
-
-    .app{
-        grid-template-columns:1fr;
-    }
-
-    .sidebar{
-        display:none;
-    }
-
-    .main-content{
-        padding:20px;
-    }
-
-    .topbar{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:20px;
-    }
-
-    .topbar-right{
-        width:100%;
-        flex-wrap:wrap;
-    }
-
-    .search-box{
-        width:100%;
-    }
-
-    .overview,
-    .analytics-overview,
-    .loan-summary,
-    .calendar-summary,
-    .budget-stats,
-    .goal-stats,
-    .report-stats,
-    .settings-grid{
-        grid-template-columns:1fr;
-    }
-
-    .page-header{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-}
-
-@media (max-width:480px){
-
-    .main-content{
-        padding:15px;
-    }
-
-    .card,
-    .analytics-card,
-    .loan-card,
-    .budget-card,
-    .goal-card,
-    .report-card,
-    .calendar-card,
-    .settings-card{
-        padding:18px;
-    }
-
-    .welcome h2{
-        font-size:22px;
-    }
-
-    .page-header h1{
-        font-size:24px;
-    }
-
-    .chart-container{
-        min-height:250px;
-    }
-
-}
-
-/* ===========================
-   Responsive - Tables & Forms
-=========================== */
-
-@media (max-width:768px){
-
-    .transaction-toolbar{
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .transaction-toolbar input,
-    .transaction-toolbar select,
-    .transaction-toolbar button{
-        width:100%;
-    }
-
-    .transaction-table{
-        overflow-x:auto;
-    }
-
-    .table-header,
-    .transaction-row{
-        min-width:850px;
-    }
-
-    .budget-input,
-    .goal-input{
-        flex-direction:column;
-    }
-
-    .budget-input input,
-    .budget-input button,
-    .goal-input input,
-    .goal-input button{
-        width:100%;
-    }
-
-    .report-actions{
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .report-actions button{
-        width:100%;
-    }
-
-    .calendar-grid{
-        gap:6px;
-    }
-
-    .calendar-day{
-        height:70px;
-    }
-
-    .calendar-date{
-        font-size:18px;
-    }
-
-    .loan-header{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .loan-header-actions{
-        width:100%;
-        justify-content:flex-end;
-    }
-
-    .recurring-actions{
-        flex-direction:column;
-    }
-
-    .recurring-actions button{
-        width:100%;
-    }
-
-    .notification-panel{
-        width:100%;
-        right:0;
-        left:0;
-    }
-
-    .modal-content{
-        width:95%;
-        padding:20px;
-    }
-
-}
-
-/* ===========================
-   Responsive - Charts & Cards
-=========================== */
-
-@media (max-width:768px){
-
-    .chart-card,
-    .transaction-card,
-    .analytics-chart-card{
-        min-height:auto;
-        padding:20px;
-    }
-
-    .chart-container{
-        min-height:260px;
-        padding:12px;
-    }
-
-    .analytics-chart-card canvas{
-        height:260px !important;
-    }
-
-    .transaction-list{
-        max-height:none;
-    }
-
-    .calendar-header{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:12px;
-    }
-
-    .calendar-header h2{
-        width:100%;
-        text-align:center;
-        font-size:24px;
-    }
-
-    .calendar-weekdays{
-        font-size:12px;
-    }
-
-    .calendar-day{
-        min-height:65px;
-    }
-
-    .upcoming-item,
-    .calendar-transaction-item,
-    .transaction-item{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-    }
-
-    .upcoming-right{
-        width:100%;
-        text-align:left;
-    }
-
-    .profile-top{
-        justify-content:center;
-    }
-
-    .profile-stats{
-        gap:10px;
-    }
-
-    .global-search-results{
-        max-height:250px;
-    }
-
-}
-
-/* ===========================
-   Mobile Sidebar
-=========================== */
-
-.menu-toggle{
-    display:none;
-    width:45px;
-    height:45px;
-    border:none;
-    border-radius:10px;
-    background:#2563EB;
-    color:#fff;
-    cursor:pointer;
-    font-size:20px;
-}
-
-.sidebar-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
-    z-index:998;
-}
-
-.sidebar-overlay.show{
-    opacity:1;
-    visibility:visible;
-}
-
-@media(max-width:768px){
-
-    .menu-toggle{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-
-    .sidebar{
-
-        display:flex;
-
-        position:fixed;
-
-        top:0;
-        left:-280px;
-
-        width:260px;
-        height:100vh;
-
-        transition:.35s;
-
-        z-index:999;
-
-    }
-
-    .sidebar.show{
-
-        left:0;
-
-    }
-
-}
-
-/* ===========================
-   Financial Health Mobile Fix
-=========================== */
-
-@media (max-width:768px){
-
-    .health-body{
-        display:flex;
-        flex-direction:column;
-        gap:24px;
-    }
-
-    .health-circle{
-        margin:0 auto;
-    }
-
-    .health-breakdown{
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
-
-    .health-item{
-        width:100%;
-    }
-
-    .health-item-top{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-    }
-
-    .health-bar{
-        width:100%;
-    }
-
-    .health-insight li{
-        display:flex;
-        align-items:flex-start;
-        gap:12px;
-        white-space:normal;
-        word-break:break-word;
-        overflow-wrap:anywhere;
-    }
-
-}
-
-@media (max-width:480px){
-
-    .health-breakdown{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
-
-    .health-item{
-        padding:14px;
-    }
-
-    .health-item-top{
-        flex-direction:column;
-        gap:4px;
-        text-align:center;
-    }
-}
-
-@media (max-width:768px){
-
-    .achievement-list{
-        grid-template-columns:1fr;
-        gap:16px;
-    }
-
-    .achievement-item{
-        grid-template-columns:60px 1fr;
-        gap:14px;
-        padding:18px;
-    }
-
-    .achievement-status{
-        grid-column:1 / -1;
-        justify-self:flex-start;
-        margin-top:12px;
-    }
-
-    .achievement-content h4{
-        font-size:18px;
-    }
-
-    .achievement-content p{
-        font-size:14px;
-    }
 }

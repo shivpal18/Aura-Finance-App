@@ -1699,15 +1699,13 @@ function renderInvestments() {
 
         list.innerHTML += `
         <div class="investment-card">
-
+        
             <div class="investment-header">
 
                 <h3>
                     📈 ${item.name}
                 </h3>
-
                 <div>
-
                     <button
                         class="edit-btn"
                         onclick="editInvestment(${item.id})">
@@ -1719,9 +1717,7 @@ function renderInvestments() {
                         onclick="deleteInvestment(${item.id})">
                         🗑️
                     </button>
-
                 </div>
-
             </div>
 
             <p>
@@ -1753,4 +1749,3 @@ function renderInvestments() {
         `;
     });
 }
-
