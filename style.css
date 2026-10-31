@@ -4549,296 +4549,181 @@ body{
 }
 
 .health-insight h4{
-
     margin-bottom:14px;
-
     color:var(--text);
-
     font-size:18px;
-
 }
 
 .health-insight ul{
-
     display:flex;
-
     flex-direction:column;
-
     gap:12px;
-
     list-style:none;
-
 }
 
 .health-insight li{
-
     display:flex;
-
     align-items:flex-start;
-
     gap:10px;
-
     color:var(--text-light);
-
     line-height:1.6;
-
 }
 
 .health-insight strong{
-
     color:var(--text);
-
 }
 
 .health-item{
-
     display:flex;
-
     flex-direction:column;
-
     gap:10px;
-
     padding:16px 18px;
-
     border-radius:16px;
-
     background:var(--surface-soft);
-
     border:1px solid var(--border);
-
 }
 
 .health-item-top{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
 }
 
 .health-bar{
-
     width:100%;
-
     height:6px;
-
     background:rgba(255,255,255,.08);
-
     border-radius:999px;
-
     overflow:hidden;
-
 }
 
 .health-bar-fill{
-
     width:0;
-
     height:100%;
-
     border-radius:999px;
-
     background:linear-gradient(
         90deg,
         #3B82F6,
         #60A5FA
     );
-
     transition:width .8s ease;
-
 }
 
 .health-item{
-
     position:relative;
-
     overflow:hidden;
-
     transition:var(--transition);
-
 }
 
 .health-item::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:linear-gradient(
         135deg,
         var(--primary-08),
         transparent 65%
     );
-
     opacity:0;
-
     transition:var(--transition);
-
     pointer-events:none;
-
 }
 
 .health-item:hover{
-
     transform:translateY(-5px);
-
     border-color:var(--primary);
-
     box-shadow:0 14px 30px var(--primary-20);
-
 }
 
 .health-item:hover::before{
-
     opacity:1;
-
 }
 
 .health-item span{
-
     color:var(--text-light);
-
     font-size:14px;
-
     font-weight:600;
-
     transition:var(--transition);
-
 }
 
 .health-item strong{
-
     font-size:16px;
-
     font-weight:700;
-
     color:var(--text);
-
     transition:var(--transition);
-
 }
 
 .health-item:hover span{
-
     color:var(--text);
-
 }
 
 .health-item:hover strong{
-
     color:var(--primary);
-
 }
 
 .health-bar{
-
     height:8px;
-
     border-radius:999px;
-
     overflow:hidden;
-
     background:rgba(255,255,255,.06);
-
     box-shadow:
         inset 0 1px 3px rgba(0,0,0,.25);
-
 }
 
 .health-bar-fill{
-
     border-radius:999px;
-
     box-shadow:
-
         0 0 14px rgba(59,130,246,.35),
-
         inset 0 1px 2px rgba(255,255,255,.18);
-
 }
 
 .health-insight{
-
     position:relative;
-
     overflow:hidden;
-
     transition:var(--transition);
-
 }
 
 .health-insight::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:linear-gradient(
         135deg,
         var(--primary-08),
         transparent 65%
     );
-
     opacity:0;
-
     transition:var(--transition);
-
     pointer-events:none;
-
 }
 
 .health-insight:hover{
-
     transform:translateY(-6px);
-
     border-color:var(--primary);
-
     box-shadow:0 16px 34px var(--primary-20);
-
 }
 
 .health-insight:hover::before{
-
     opacity:1;
-
 }
 
 .health-insight h4{
-
     font-size:20px;
-
     font-weight:700;
-
     color:var(--text);
-
     transition:var(--transition);
-
 }
 
 .health-insight:hover h4{
-
     color:var(--primary);
-
 }
 
 .health-insight li{
-
     padding:14px 16px;
-
     border-radius:14px;
-
     background:var(--surface);
-
     border:1px solid transparent;
-
     transition:var(--transition);
-
 }
 
 .health-insight li:hover{
