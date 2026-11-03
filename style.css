@@ -4139,22 +4139,15 @@ body{
 
 .achievement-item{
     position:relative;
-
     display:grid;
     grid-template-columns:70px minmax(0,1fr) 90px;
     align-items:center;
-
     gap:18px;
-
     min-height:150px;
-
     padding:20px;
-
     background:var(--surface-soft);
-
     border:1px solid var(--border);
     border-radius:18px;
-
     transition:var(--transition);
 }
 
@@ -4190,7 +4183,6 @@ body{
     font-weight:700;
     color:var(--text);
     margin-bottom:8px;
-
     word-break:normal;
     overflow-wrap:normal;
     white-space:normal;
@@ -4208,19 +4200,12 @@ body{
 }
 
 .achievement-status{
-
     position:static;
-
     flex-shrink:0;
-
     padding:7px 16px;
-
     border-radius:999px;
-
     font-size:13px;
-
     font-weight:600;
-
 }
 
 .achievement-status.unlocked{
