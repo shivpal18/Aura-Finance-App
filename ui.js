@@ -122,6 +122,7 @@ function updateBudget() {
                 (sum, t) => sum + t.amount,
                 0
             );
+
     const left =
         monthlyBudget - totalExpense;
     budget.textContent =
@@ -130,6 +131,7 @@ function updateBudget() {
         formatCurrency(totalExpense);
     remaining.textContent =
         formatCurrency(left);
+
     let percent = 0;
     if (monthlyBudget > 0) {
         percent =
@@ -139,6 +141,7 @@ function updateBudget() {
     requestAnimationFrame(() => {
         progress.style.width = `${percent}%`;
     });
+
     document.getElementById("budgetPercent").textContent =
         `${Math.round(percent)}%`;
     if (monthlyBudget === 0) {
@@ -201,6 +204,7 @@ function updateGoal() {
                 0
             )
         );
+
     let value = 0;
     if (savingsGoal > 0) {
         value =
@@ -211,6 +215,7 @@ function updateGoal() {
         `${value}%`;
     percent.textContent =
         `${Math.round(value)}%`;
+
     if (savingsGoal === 0) {
         status.textContent =
             "No Goal Set";
@@ -261,6 +266,7 @@ function exportCSV(){
             `${transaction.amount},`+
             `${transaction.date}\n`;
     });
+
     const blob =
         new Blob([csv],{
             type:"text/csv"
@@ -292,6 +298,7 @@ function exportPDF(){
         .filter(t=>t.type==="expense")
         .reduce((sum,t)=>sum+t.amount,0);
     const savings = income-expense;
+
     doc.setFontSize(22);
     doc.text(
         "AURA Finance Report",
@@ -330,6 +337,7 @@ function exportPDF(){
         20,
         80
     );
+
     let y = 100;
     doc.setFontSize(16);
     doc.text(
@@ -351,6 +359,7 @@ function exportPDF(){
             y=20;
         }
     });
+
     doc.save("AURA-Finance-Report.pdf");
 
     showToast(
@@ -377,6 +386,7 @@ function renderCalendar(){
         "July","August","September",
         "October","November","December"
     ];
+
     monthTitle.textContent =
         `${months[month]} ${year}`;
     const firstDay =
@@ -388,6 +398,7 @@ function renderCalendar(){
             document.createElement("div");
         calendarGrid.appendChild(empty);
     }
+
     const today = new Date();
     for(let day=1;day<=totalDays;day++){
         const cell =
@@ -679,7 +690,6 @@ function importBackup(file){
             renderTransactions();
             renderAllTransactions();
             renderCalendar();
-
             showToast(
                 "Backup Imported",
                 "Data restored successfully.",
@@ -727,28 +737,19 @@ function resetAllData(){
 }
 
 function toggleTheme(){
-
     theme =
         theme === "dark"
         ? "light"
         : "dark";
-
     saveTheme();
-
     applyTheme();
-
     showToast(
-
         theme === "dark"
             ? "Dark Mode"
             : "Light Mode",
-
         "Theme changed successfully.",
-
         "info"
-
     );
-
 }
 
 function applyTheme(){
@@ -871,18 +872,14 @@ function updateInvestmentInsights(){
 }
 
 function updateFinancialHealth(){
-
     let income = 0;
     let expense = 0;
-
     transactions.forEach(item=>{
-
         if(item.type==="income"){
             income += item.amount;
         }else{
             expense += item.amount;
         }
-
     });
 
     const savings =
@@ -893,24 +890,19 @@ function updateFinancialHealth(){
 
     let invested = 0;
     let currentInvestment = 0;
-
     investments.forEach(item=>{
-
         invested += Number(item.amount);
         currentInvestment += Number(item.currentValue);
 
     });
 
     let remainingLoan = 0;
-
     loans.forEach(item=>{
-
         remainingLoan += Math.max(
             item.amount -
             (item.paidEmi * item.emi),
             0
         );
-
     });
 
     /* ---------- Individual Scores ---------- */
@@ -964,78 +956,53 @@ function updateFinancialHealth(){
 
     const finalScore =
         Math.round(
-
             (
-
                 incomeScore+
-
                 savingScore+
-
                 budgetScore+
-
                 investmentScore+
-
                 loanScore
-
             )/5
-
         );
-
     document.getElementById(
         "healthScore"
     ).textContent =
         finalScore;
-
     document.getElementById(
         "incomeHealth"
     ).textContent =
         Math.round(incomeScore)+"%";
-
     document.getElementById(
         "budgetHealth"
     ).textContent =
         Math.round(budgetScore)+"%";
-
     document.getElementById(
         "savingHealth"
     ).textContent =
         Math.round(savingScore)+"%";
-
     document.getElementById(
         "investmentHealth"
     ).textContent =
         Math.round(investmentScore)+"%";
-
     document.getElementById(
         "loanHealth"
     ).textContent =
         Math.round(loanScore)+"%";
 
     function setHealthBar(id, value){
-
         const bar =
             document.getElementById(id);
-
         if(!bar) return;
-
         bar.style.width = value + "%";
-
         if(value >= 80){
-
             bar.style.background = "#22C55E";
-
         }
         else if(value >= 60){
-
             bar.style.background = "#F59E0B";
-
         }
         else{
-
             bar.style.background = "#EF4444";
-
         }
-
     }
 
     setHealthBar("incomeHealthBar", incomeScore);
@@ -1048,19 +1015,14 @@ function updateFinancialHealth(){
         document.getElementById(
             "healthProgress"
         );
-
     if(progress){
-
         const circumference = 314;
-
         const offset =
             circumference -
             (finalScore / 100) *
             circumference;
-
         progress.style.strokeDashoffset =
             offset;
-
     }
 
     const status =
