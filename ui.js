@@ -1031,59 +1031,41 @@ function updateFinancialHealth(){
         );
 
     if(status){
-
         if(finalScore >= 85){
-
             status.textContent =
                 "Excellent";
-
             status.style.background =
                 "rgba(34,197,94,.15)";
-
             status.style.color =
                 "#22C55E";
-
         }
 
         else if(finalScore >= 70){
-
             status.textContent =
                 "Good";
-
             status.style.background =
                 "rgba(59,130,246,.15)";
-
             status.style.color =
                 "#3B82F6";
-
         }
 
         else if(finalScore >= 50){
-
             status.textContent =
                 "Average";
-
             status.style.background =
                 "rgba(245,158,11,.15)";
-
             status.style.color =
                 "#F59E0B";
-
         }
 
         else{
-
             status.textContent =
                 "Poor";
-
             status.style.background =
                 "rgba(239,68,68,.15)";
-
             status.style.color =
                 "#EF4444";
-
         }
-
     }
 
     const insight =
@@ -1092,78 +1074,56 @@ function updateFinancialHealth(){
         );
 
     if(insight){
-
         const tips = [];
-
         if(budgetScore < 70){
-
             tips.push(
                 "⚠ Reduce monthly expenses to improve your budget score."
             );
-
         }
 
         if(savingScore >= 80){
-
             tips.push(
                 "✅ Excellent savings habit. Keep it up!"
             );
-
         }
 
         if(investmentScore >= 90){
-
             tips.push(
                 "📈 Your investments are performing well."
             );
-
         }
 
         if(loanScore < 70){
-
             tips.push(
                 "🏦 Paying more EMIs can improve your financial health."
             );
-
         }
 
         if(finalScore >= 85){
-
             tips.push(
                 "🎯 Your overall financial health is excellent."
             );
-
         }
 
         if(tips.length===0){
-
             tips.push(
                 "💡 Keep tracking your finances regularly."
             );
-
         }
 
         insight.innerHTML =
-
         `
             <h4>
                 Smart Insights
             </h4>
-
             <ul>
-
                 ${
                     tips.map(item=>
-
                         `<li>${item}</li>`
-
                     ).join("")
                 }
-
             </ul>
-
         `;
-
     }
 }
 
@@ -1172,7 +1132,6 @@ function updateFinancialHealth(){
 
 
 const achievements = [
-
     // Transactions
     {
         id:"first_transaction",
@@ -1345,83 +1304,59 @@ const achievements = [
 ];
 
 function renderAchievements() {
-
     const container =
         document.getElementById("achievementList");
-
     if (!container) {
         return;
     }
-
     container.innerHTML = "";
-
     const unlocked =
         achievements.filter(
             item => item.unlocked
         ).length;
-
     const percent =
         Math.round(
             (unlocked / achievements.length) * 100
         );
-
     document.getElementById(
         "achievementUnlocked"
     ).textContent = unlocked;
-
     document.getElementById(
         "achievementTotal"
     ).textContent = achievements.length;
-
     document.getElementById(
         "achievementPercent"
     ).textContent = percent + "%";
-
     document.getElementById(
         "achievementProgress"
     ).style.width = percent + "%";
-
     achievements.slice(0,4).forEach(item => {
-
         container.innerHTML += `
             <div class="achievement-item">
-
                 <div class="achievement-icon">
                     ${item.icon}
                 </div>
-
                 <div class="achievement-content">
-
                     <div class="achievement-top">
-
                         <h4>${item.title}</h4>
-
                         <span class="achievement-status ${
                             item.unlocked
                                 ? "unlocked"
                                 : "locked"
                         }">
-
                             ${
                                 item.unlocked
                                     ? "Unlocked"
                                     : "Locked"
                             }
-
                         </span>
-
                     </div>
-
                     <p>${item.description}</p>
-
                 </div>
-
             </div>
         `;
-
     });
     renderAllAchievements();
-
 }
 
 function updateAchievements() {
