@@ -1360,30 +1360,24 @@ function renderAchievements() {
 }
 
 function updateAchievements() {
-
     const totalTransactions =
         transactions.length;
-
     const incomeCount =
         transactions.filter(
             item => item.type === "income"
         ).length;
-
     const expenseCount =
         transactions.filter(
             item => item.type === "expense"
         ).length;
-
     const totalIncome =
         transactions
             .filter(item => item.type === "income")
             .reduce((sum,item)=>sum+item.amount,0);
-
     const totalExpense =
         transactions
             .filter(item => item.type === "expense")
             .reduce((sum,item)=>sum+item.amount,0);
-
     const totalSavings =
         Math.max(
             totalIncome - totalExpense,
@@ -1391,146 +1385,105 @@ function updateAchievements() {
         );
 
     achievements.forEach(item => {
-
         switch(item.id){
-
             case "first_transaction":
                 item.unlocked = totalTransactions >= 1;
                 break;
-
             case "ten_transactions":
                 item.unlocked = totalTransactions >= 10;
                 break;
-
             case "fifty_transactions":
                 item.unlocked = totalTransactions >= 50;
                 break;
-
             case "hundred_transactions":
                 item.unlocked = totalTransactions >= 100;
                 break;
-
             case "first_income":
                 item.unlocked = incomeCount >= 1;
                 break;
-
             case "income_10000":
                 item.unlocked = totalIncome >= 10000;
                 break;
-
             case "income_50000":
                 item.unlocked = totalIncome >= 50000;
                 break;
-
             case "income_100000":
                 item.unlocked = totalIncome >= 100000;
                 break;
-
             case "first_expense":
                 item.unlocked = expenseCount >= 1;
                 break;
-
             case "expense_10000":
                 item.unlocked = totalExpense >= 10000;
                 break;
-
             case "expense_50000":
                 item.unlocked = totalExpense >= 50000;
                 break;
-
             case "first_investment":
-
                 item.unlocked =
                     Array.isArray(investments) &&
                     investments.length >= 1;
-
                 break;
-
             case "five_investments":
-
                 item.unlocked =
                     Array.isArray(investments) &&
                     investments.length >= 5;
-
                 break;
-
             case "first_loan":
-
                 item.unlocked =
                     Array.isArray(loans) &&
                     loans.length >= 1;
-
                 break;
-
             case "budget_master":
                 item.unlocked =
                     monthlyBudget > 0 &&
                     totalExpense <= monthlyBudget;
                 break;
-
             case "first_goal":
-
                 item.unlocked =
                     Number(savingsGoal) > 0;
-
                 break;
-
             case "goal_completed":
-
                 item.unlocked =
                     Number(savingsGoal) > 0 &&
                     totalSavings >= Number(savingsGoal);
-
                 break;
-
             case "save_50000":
-
                 item.unlocked =
                     totalSavings >= 50000;
-
                 break;
-
             case "finance_pro":
-
                 item.unlocked =
                     achievements
                         .filter(a => a.id !== "finance_pro")
                         .every(a => a.unlocked);
-
                 break;
         }
 
         const storageKey =
             `achievement_${item.id}`;
-
         const alreadyShown =
             localStorage.getItem(storageKey);
-
         if(
             item.unlocked &&
             !alreadyShown
         ){
-
             showToast(
                 "Achievement Unlocked",
                 `${item.icon} ${item.title}`,
                 "achievement"
             );
-
             localStorage.setItem(
                 storageKey,
                 "true"
             );
-
         }
-
     });
 
     const unlocked =
         achievements.filter(
             item => item.unlocked
         ).length;
-
     const percent =
         Math.round(
             (unlocked / achievements.length) * 100
@@ -1544,7 +1497,6 @@ function updateAchievements() {
         document.getElementById(
             "sidebarAchievementCount"
         );
-
     if (sidebarAchievement) {
         sidebarAchievement.textContent =
             `${unlocked} / ${achievements.length}`;
@@ -1553,77 +1505,55 @@ function updateAchievements() {
     document.getElementById(
         "achievementUnlocked"
     ).textContent = unlocked;
-
     document.getElementById(
         "achievementPercent"
     ).textContent =
         percent + "%";
-
     document.getElementById(
         "achievementProgress"
     ).style.width =
         percent + "%";
-
     renderAchievements();
 }
 
 function renderAllAchievements(){
-
     const container =
         document.getElementById(
             "allAchievements"
         );
-
     if(!container){
         return;
     }
-
     container.innerHTML = "";
-
     achievements.forEach(item=>{
-
         container.innerHTML += `
-
         <div class="achievement-item ${item.unlocked ? "achievement-unlocked" : ""}">
-
             <div class="achievement-icon">
                 ${item.icon}
             </div>
-
             <div class="achievement-content">
-
                 <h4>${item.title}</h4>
-
                 <p>${item.description}</p>
-
                 <small>
                     ${item.unlocked
                         ? "🎉 Achievement Unlocked"
                         : "🔒 Complete the task to unlock"}
                 </small>
-
             </div>
-
             <span class="achievement-status ${
                 item.unlocked
                     ? "unlocked"
                     : "locked"
             }">
-
                 ${
                     item.unlocked
                         ? "Unlocked"
                         : "Locked"
                 }
-
             </span>
-
         </div>
-
         `;
-
     });
-
 }
 
 // ===========================
