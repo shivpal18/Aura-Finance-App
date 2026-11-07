@@ -1570,83 +1570,53 @@ function showToast(
         document.getElementById(
             "toastContainer"
         );
-
     if(!container) return;
-
     const icons = {
-
         success:"✅",
-
         error:"❌",
-
         warning:"⚠️",
-
         info:"ℹ️",
-
         achievement:"🏆"
-
     };
 
     const toast =
         document.createElement("div");
-
     toast.className =
         `toast ${type}`;
-
     toast.innerHTML =
-
     `
         <div class="toast-icon">
-
             ${icons[type] || "ℹ️"}
-
         </div>
-
         <div class="toast-content">
-
             <div class="toast-title">
-
                 ${title}
-
             </div>
-
             <div class="toast-message">
-
                 ${message}
-
             </div>
-
         </div>
     `;
-
     container.appendChild(
         toast
     );
 
     requestAnimationFrame(()=>{
-
         toast.classList.add(
             "show"
         );
-
     });
 
     setTimeout(()=>{
-
         toast.classList.remove(
             "show"
         );
-
         toast.classList.add(
             "hide"
         );
-
         setTimeout(()=>{
-
             toast.remove();
-
         },450);
-
     },3000);
 
 }
